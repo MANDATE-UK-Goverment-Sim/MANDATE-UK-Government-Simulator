@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#07111f" />
+  <title>MANDATE — Government Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="boot" class="boot-screen">
+    <div class="crest">M</div>
+    <h1>MANDATE</h1>
+    <p>Government is waiting.</p>
+    <div class="boot-bar"><span></span></div>
+  </div>
+
+  <div id="app" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="brand-wrap">
+        <div class="crest crest-sm">M</div>
+        <div><strong>MANDATE</strong><small id="brandSub">Avalon • Election HQ</small></div>
+      </div>
+
+      <nav id="nav" class="nav-list">
+        <button data-view="dashboard" class="active"><span>⌂</span>Overview</button>
+        <button data-view="calendar"><span>□</span>Calendar</button>
+        <button data-view="parliament"><span>◉</span>Parliament</button>
+        <button data-view="legislation"><span>§</span>Legislation</button>
+        <button data-view="economy"><span>£</span>Economy</button>
+        <button data-view="cabinet"><span>♟</span>Cabinet</button>
+        <button data-view="cabinetmeetings"><span>◫</span>Cabinet Meetings</button>
+        <button data-view="pmqs"><span>❝</span>PMQs</button>
+        <button data-view="elections"><span>✓</span>Elections</button>
+        <button data-view="transitions"><span>♔</span>Constitution</button>
+        <button data-view="media"><span>▤</span>Media</button>
+        <button data-view="crises"><span>⚠</span>Crises</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <button id="saveBtn" class="secondary full">Save game</button>
+        <button id="resetBtn" class="ghost full">New game</button>
+        <div class="save-state"><i></i><span id="saveText">Local save ready</span></div>
+      </div>
+    </aside>
+
+    <main class="main-shell">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow" id="viewEyebrow">PRIME MINISTER'S OFFICE</div>
+          <h2 id="viewTitle">Government overview</h2>
+        </div>
+        <div class="top-actions">
+          <div class="clock-card"><small>Government week</small><strong id="dateLabel"></strong></div>
+          <div class="approval-pill"><small>Approval</small><strong id="approvalTop">50%</strong></div>
+          <button id="nextWeekBtn" class="primary">Continue →</button>
+        </div>
+      </header>
+
+      <section id="content" class="content"></section>
+    </main>
+  </div>
+
+  <div id="modal" class="modal-backdrop hidden" aria-hidden="true">
+    <div class="modal-card">
+      <button id="modalClose" class="modal-close">×</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
